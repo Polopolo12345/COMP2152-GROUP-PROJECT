@@ -17,11 +17,13 @@ workout_stats = {
 }
 
 #d
-for friend, activities in list(workout_stats.items()):
+workout_totals = {}
+for friend, activities in workout_stats.items():
     total_minutes = sum(activities)
-    workout_stats[f"{friend}_Total"] = total_minutes
+    workout_totals[f"{friend}_Total"] = total_minutes
 
 #e
+workout_stats.update(workout_totals)
 workout_list = [
     list(workout_stats[friend]) for friend in ["Alex", "Jamie", "Taylor"]
 ]
@@ -42,12 +44,12 @@ for friend in ["Alex", "Jamie", "Taylor"]:
 #h
 friend_name = input("Enter the name of the friend to check their workout record: ")
 
-if friend_name in workout_stats:
+if f"{friend_name}_Total" in workout_stats:
     activities = workout_stats[friend_name]
-    total_minutes = workout_stats.get(f"{friend_name}_Total", sum(activities))
+    total_minutes = workout_stats[f"{friend_name}_Total"]
     print(f"Workout minutes for {friend_name}:")
-    print(f"Yoga: {activities[0]} minutes, running: {activities[1] }minutes, Weightlifting: {activities[2]} minutes")
-    print(f"Total Workout minutes: {total_minutes} minutes")
+    print(f"Yoga: {activities[0]} minutes, Running: {activities[1]} minutes, Weightlifting: {activities[2]} minutes")
+    print(f"Total workout minutes: {total_minutes} minutes")
 else:
     print(f"Friend {friend_name} not found in the records.")
 
