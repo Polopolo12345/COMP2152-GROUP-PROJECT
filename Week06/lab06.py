@@ -5,7 +5,7 @@ import random
 # print("Inside function.py")
 
 
-# Lab 4: Question 4
+# Lab 4: Question 4 
 def use_loot(belt, health_points):
     good_loot_options = ["Health Potion", "Leather Boots"]
     bad_loot_options = ["Poison Potion"]

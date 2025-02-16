@@ -23,7 +23,7 @@ def use_loot(belt, health_points):
     return belt, health_points
 
 
-# Lab 4: Question 3 
+# Lab 4: Question 3  
 def collect_loot(loot_options, belt):
     ascii_image3 = """
                       @@@ @@                
