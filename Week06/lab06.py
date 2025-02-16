@@ -172,4 +172,4 @@ def adjust_combat_strength(combat_strength, m_combat_strength):
                 combat_strength += 1
                 print("    |    In creasing Hero's combat strength since you lost last game")
             else:
-             print("    |    ... Based on your previous game, neither the hero nor the monster's combat strength will be increased")
+             print("    |   ... Based on your previous game, neither the hero nor the monster's combat strength will be increased")
