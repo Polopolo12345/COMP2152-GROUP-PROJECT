@@ -10,8 +10,6 @@ print(f"Operating System: {os_name}")
 python_version = platform.python_version()
 print(f"Python version: {python_version}")
 
-
-
 # Define two Dice
 small_dice_options = list(range(1, 7))
 big_dice_options = list(range(1, 21))
@@ -111,6 +109,24 @@ if not input_invalid:
     # If the weapon rolled is not a Fist, print out "Thank goodness you didn't roll the Fist..."
     if weapon["name"] != "Fist":
         print("    |    --- Thank goodness you didn't roll the Fist...")
+
+    print("    |", end="    ")
+    choice = input("Do you want to open the book of weapons(Y/N): ")
+    if choice == "Y" or choice == "y":
+        print("Opening the book...")
+        item_type = input("Filter by type (potion/armor/misc/ranged/melee/explosive): ").strip() or None
+        rarity = input("Filter by rarity (common/uncommon/rare/epic): ").strip() or None
+        usage = input("Filter by usage (heal/damage/defense/lore/dexterity/shoot/stab/bash/blast/annihilate): ").strip() or None
+
+        filtered_loot = feature.filter_items(feature.get_weapons(), item_type, rarity, usage)
+
+        if filtered_loot:
+            print("Filtered Items:")
+            for item in filtered_loot:
+                print(f" - {item['name']} ({item['type']}, {item['rarity']}, {item['usage']})")
+        else:
+            print("No items matched your filters.")
+
 
     # Roll for player health points
     print("    |", end="    ")
