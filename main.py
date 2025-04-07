@@ -121,11 +121,22 @@ if not input_invalid:
         filtered_loot = feature.filter_items(feature.get_weapons(), item_type, rarity, usage)
 
         if filtered_loot:
-            print("Filtered Items:")
-            for item in filtered_loot:
+            #Adding a Sort Condition
+            print("Would you like to sort the filtered items?")
+            sort_key = input("Enter sort key (name/type/rarity/usage): ").strip() or "name"
+            order = input("Enter order (asc/desc): ").strip().lower()
+            reverse = True if order == "desc" else False
+
+            sorted_items = feature.sort_items(filtered_loot, sort_key, reverse)
+            if sorted_items != filtered_loot:
+                print("Items have been sorted.")
+
+            print("Sorted & Filtered Items:")
+            for item in sorted_items:
                 print(f" - {item['name']} ({item['type']}, {item['rarity']}, {item['usage']})")
         else:
             print("No items matched your filters.")
+
 
 
     # Roll for player health points
