@@ -15,3 +15,9 @@ def get_weapons():
         {"name": "Bomb", "type": "explosive", "rarity": "rare", "usage": "blast"},
         {"name": "Nuclear Bomb", "type": "explosive", "rarity": "epic", "usage": "annihilate"},
     ]
+#Jiung
+def sort_items(items, key, reverse=False):
+    if key not in ['name', 'type', 'rarity', 'usage']:
+        print("Invalid sort key. Sorting skipped.")
+        return items
+    return sorted(items, key=lambda item: item[key], reverse=reverse)
