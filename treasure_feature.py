@@ -5,11 +5,10 @@ class TreasureMap:
         self.rows = rows
         self.cols = cols
         self.map = [[" " for _ in range(cols)] for _ in range(rows)]
-        self.player_pos = (2, 2)  # 시작 위치
+        self.player_pos = (2, 2) 
         self.score = 0
         self.health = 10
 
-        # 보물 배치
         self.treasure_types = ["healing", "trap", "bonus"]
         self.treasures = {}
         self._place_treasures()
